@@ -15,8 +15,8 @@ class MConfig extends Config {
         $this->addParam('dbname', $conf->dbname->__toString());
         $this->addParam('dbuser', $conf->username->__toString());
         $this->addParam('dbpass', $conf->password->__toString());
-        $this->addParam('time', time());
-        $this->addParam('updated', filemtime($this->getPath()));
+        $this->addParam('time', date('Y-m-d H:i:s', time()));
+        $this->addParam('updated', date('Y-m-d', filemtime($this->getPath())));
     }
   }
 }

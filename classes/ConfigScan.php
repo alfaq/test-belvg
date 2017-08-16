@@ -49,8 +49,9 @@ class ConfigScan {
    */
   public function findConfig(){
     $hostName = $this->getHost($this->rootDir);
-
     if(!empty($hostName)){
+      $db = new dbFunc();
+      $db->clear();
       foreach($hostName as $host){
         $path = $this->getRootDir().DIRECTORY_SEPARATOR.$host;
         $hostDir = $this->scanDir($path);
@@ -61,11 +62,11 @@ class ConfigScan {
         }else{
           throw new Exception('underfined');
         }
+        $config->read();//call abstract methode
 
-        $config->read();
-        $config->write();
+        $db->write($config->getParam());
       }
+      $db->show();
     }
-    //return $this->rootDir;
   }
 }

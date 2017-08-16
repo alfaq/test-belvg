@@ -10,19 +10,7 @@ require_once( "classes/ConfigScan.php" );
 require_once( "classes/Config.php" );
 require_once( "classes/MConfig.php" );
 require_once( "classes/PConfig.php" );
+require_once( "classes/dbFunc.php" );
 
 $scan = new ConfigScan('sites');
 $scan->findConfig();
-
-
-
-
-/*$table = '<table>
-            <tbody><tr>
-                <td>Тип</td>
-                <td>Имя (host1, host2, etc)</td>
-                <td>DB&nbsp;Host</td>
-                <td>DB&nbsp;Username</td>
-                <td>DB&nbsp;Password</td>
-            </tr>
-        </tbody></table>';*/

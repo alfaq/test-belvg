@@ -1,11 +1,7 @@
 <?php
 
-/**
- * Created by PhpStorm.
- * User: Mozh
- * Date: 15-08-2017
- * Time: 14:28
- */
+
+
 abstract class Config {
   private $path;
   private $host;
@@ -33,7 +29,7 @@ abstract class Config {
   /**
    * @return array
    */
-  protected function getParam(){
+  public function getParam(){
     return $this->param;
   }
 
@@ -44,27 +40,8 @@ abstract class Config {
     $this->param[$key] = $param;
   }
 
+  /*
+   * methode for read param from any CMS config
+   */
   public abstract function read();
-
-
-  public function write(){
-    $param = $this->getParam();//get param for insert from current config
-
-    try {
-      require_once "/config/config.inc.php";
-      $conn = new PDO("mysql:host=".dbhost.";dbname=".dbname."", dbuser, dbpass);
-
-      // set the PDO error mode to exception
-      $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-      $statement = $conn->prepare("INSERT INTO test (type, name, db_host, db_name, db_username, db_password, date, last_modified)
-    VALUES(:type, :name, :host, :dbname, :dbuser, :dbpass, :time, :updated)");
-      $statement->execute($param);
-    }
-    catch(PDOException $e)
-    {
-      echo $e->getMessage();
-    }
-
-  }
 }

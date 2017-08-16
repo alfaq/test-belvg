@@ -25,8 +25,8 @@ class PConfig extends Config {
     }
     fclose($file);
     $this->addParam('name', $this->getHost());
-    $this->addParam('time', time());
-    $this->addParam('updated', filemtime($this->getPath()));
+    $this->addParam('time', date("Y-m-d H:i:s", time()));
+    $this->addParam('updated', date('Y-m-d', filemtime($this->getPath())));
 
     //print_r($this->getParam());
   }
