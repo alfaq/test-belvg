@@ -6,13 +6,6 @@
  * Time: 11:37
  */
 
-
-require_once ("classes/dbFunc.php");
-require_once ("classes/Config.php");
-require_once ("classes/MConfig.php");
-require_once ("classes/PConfig.php");
-
-
 class ConfigScan {
 
   //store root dir for all sites
