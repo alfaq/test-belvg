@@ -1,8 +1,8 @@
 <?php
-
 /**
  * PrestaShop config
  */
+
 class PConfig extends Config {
   private $conf = [
     'host' => '_DB_SERVER_',

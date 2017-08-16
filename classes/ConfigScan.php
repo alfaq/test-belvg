@@ -6,6 +6,13 @@
  * Time: 11:37
  */
 
+
+require_once ("classes/dbFunc.php");
+require_once ("classes/Config.php");
+require_once ("classes/MConfig.php");
+require_once ("classes/PConfig.php");
+
+
 class ConfigScan {
 
   //store root dir for all sites
@@ -32,8 +39,8 @@ class ConfigScan {
    */
   private function getHost($dir){
     $allDir = $this->scanDir($dir);
+    $hosts = [];
     if(!empty($allDir)) {
-      $hosts = [];
       foreach ($allDir as $dir) {
         if (is_dir($this->getRootDir().DIRECTORY_SEPARATOR.$dir)) {
           $hosts[] = $dir;
