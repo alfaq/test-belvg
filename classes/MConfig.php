@@ -1,6 +1,7 @@
 <?php
 /**
  * Magento config
+ * implement reader for magento config
  */
 
 class MConfig extends Config {

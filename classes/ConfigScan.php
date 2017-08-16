@@ -11,6 +11,10 @@ class ConfigScan {
   //store root dir for all sites
   private $rootDir;
 
+  /**
+   * ConfigScan constructor.
+   * @param $rootDir
+   */
   public function __construct($rootDir) {
     $this->rootDir = $rootDir;
   }
@@ -44,7 +48,7 @@ class ConfigScan {
   }
 
   /**
-   * get all hosts
+   * find config and create object for need type
    * @return array
    */
   public function findConfig(){

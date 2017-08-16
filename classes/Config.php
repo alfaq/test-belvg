@@ -1,6 +1,8 @@
 <?php
 
-
+/*
+ * store param from reader
+ */
 
 abstract class Config {
   private $path;
@@ -42,6 +44,8 @@ abstract class Config {
 
   /*
    * methode for read param from any CMS config
+   *
+   * we can create new extend Class with 'read' methode (example PConfig or Mconfig) for read new type config(joomla, drupal and etc)
    */
   public abstract function read();
 }

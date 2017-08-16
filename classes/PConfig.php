@@ -1,6 +1,7 @@
 <?php
 /**
  * PrestaShop config
+ * implement reader for prestashop config
  */
 
 class PConfig extends Config {

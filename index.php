@@ -10,5 +10,6 @@ function p_autoload ($ClassName) {
 }
 spl_autoload_register("p_autoload");
 
+//create obj with param - root folder
 $scan = new ConfigScan('sites');
-$scan->findConfig();
+$scan->findConfig();//find, insert and show data

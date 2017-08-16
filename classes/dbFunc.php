@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * Class dbFunc
+ * work with DB
+ */
+
 class dbFunc{
   private $pdo;
 
@@ -18,7 +23,7 @@ class dbFunc{
   }
 
   /**
-   * clear table
+   * clear prev data table
    */
   public function clear(){
     try {
@@ -32,12 +37,12 @@ class dbFunc{
     }
   }
 
-
-  public function write($param){
-
+  /*
+   * insert param in DB
+   */
+  public function write(array $param){
       try {
         $conn = $this->getPdo();
-
         $query = $conn->prepare("INSERT INTO test (type, name, db_host, db_name, db_username, db_password, date, last_modified)
     VALUES(:type, :name, :host, :dbname, :dbuser, :dbpass, :time, :updated)");
         $query->execute($param);
@@ -46,6 +51,9 @@ class dbFunc{
       }
   }
 
+  /*
+   * show DB table
+   */
   public function show(){
     try {
       $conn = $this->getPdo();
